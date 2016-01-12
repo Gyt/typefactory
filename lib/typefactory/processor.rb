@@ -144,7 +144,7 @@ module Typefactory
     # @param length [Integer]
     # @return [Integer, Nil]
     def space_before_position(index, length = 4)
-      expression = /\s|\-|>|\(/
+      expression = /\s|\-|>|\(|;/
       space_at   = characters_before(index, length).rindex(expression)
       if space_at.nil?
         if index < length
@@ -167,7 +167,7 @@ module Typefactory
     # @param length [Integer]
     # @return [Integer, Nil]
     def space_after_position(index, length = 4)
-      expression = /\s|\-|<|\.|,|!|\?|:|;|\)/
+      expression = /\s|\-|<\/|\.|,|!|\?|:|;|\)/
       space_at   = characters_after(index, length).index(expression)
       if space_at.nil?
         if index > @buffer.length-length-1
