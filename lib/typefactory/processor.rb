@@ -193,6 +193,9 @@ module Typefactory
       @buffer.gsub!(/\s\-\s/) do
         "#{Typefactory::glyphs[:nbsp][Typefactory::mode]}#{Typefactory::glyphs[:mdash][Typefactory::mode]} "
       end
+      @buffer.gsub!(/\-\-\s/) do
+        "#{Typefactory::glyphs[:mdash][Typefactory::mode]} "
+      end
     end
 
   end
