@@ -70,7 +70,7 @@ module Typefactory
       depth  = -1
       @buffer.split('').each_with_index do |char, index|
         if char == '"'
-          side = quote_mark_side index
+          side = quote_mark_side(index) || :left
           if side == :left
             depth  += 1
             result += Typefactory::quote(depth, side)
@@ -119,7 +119,6 @@ module Typefactory
       elsif !after.nil? and before.nil?
         :right
       end
-      :left
     end
 
     # @param index [Integer] контрольная позиция селектора
