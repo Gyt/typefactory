@@ -119,6 +119,7 @@ module Typefactory
       elsif !after.nil? and before.nil?
         :right
       end
+      :left
     end
 
     # @param index [Integer] контрольная позиция селектора
